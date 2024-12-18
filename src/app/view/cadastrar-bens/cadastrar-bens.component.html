@@ -1,0 +1,12 @@
+<h2>Adicionar Novo Bem</h2>
+<form [formGroup]="bensForm" (ngSubmit)="addBem()">
+  <input formControlName="nome" type="text" placeholder="Nome" required />
+  <textarea formControlName="descricao" placeholder="Descrição"></textarea>
+  
+  <select formControlName="local_id" required>
+    <option value="" disabled selected>Selecione um Local</option>
+    <option *ngFor="let local of locais" [value]="local.id">{{ local.nome }}</option>
+  </select>
+  
+  <button type="submit" [disabled]="bensForm.invalid">Adicionar Bem</button>
+</form>

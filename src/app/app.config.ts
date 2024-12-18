@@ -1,9 +1,9 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';  
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http'; // Importar o cliente HTTP
-import { routes } from './app.routes'; // Importar as rotas configuradas
+import { provideHttpClient } from '@angular/common/http'; 
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,6 +11,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes), 
     provideHttpClient(),
     provideClientHydration(withEventReplay()), 
-    importProvidersFrom(FormsModule) 
+    FormsModule,
+    ReactiveFormsModule
   ]
 };

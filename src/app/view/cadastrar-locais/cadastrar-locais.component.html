@@ -1,0 +1,7 @@
+<h2>Cadastrar Novo Local</h2>
+<form [formGroup]="localForm" (ngSubmit)="cadastrarLocal()">
+  <input formControlName="nome" type="text" placeholder="Nome do Local" required />
+  <textarea formControlName="descricao" placeholder="Descrição"></textarea>
+  
+  <button type="submit" [disabled]="localForm.invalid">Cadastrar Local</button>
+</form>
